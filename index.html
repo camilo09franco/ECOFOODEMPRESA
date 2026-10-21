@@ -1,0 +1,1158 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECOFOOD es una empresa de desarrollo de software en la nube que crea aplicaciones innovadoras para facilitar la vida de las personas y las empresas.">
+    <title>ECOFOOD | Tecnología que transforma tu día</title>
+
+    <style>
+        :root {
+            --green: #24834b;
+            --dark: #123b29;
+            --light: #eaf7ed;
+            --orange: #ffb347;
+            --text: #26372e;
+            --muted: #68786d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            background: #f8fbf8;
+            line-height: 1.7;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        button, input, textarea, select { font: inherit; }
+        button { cursor: pointer; }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 20px #0000000c;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 78px;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--orange); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover { color: var(--green); }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            border-radius: 10px;
+            padding: 13px 21px;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .btn-green {
+            color: white;
+            background: var(--green);
+        }
+
+        .btn-green:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #dce9dd;
+        }
+
+        section { padding: 82px 0; scroll-margin-top: 85px; }
+
+        .hero {
+            background:
+                radial-gradient(circle at 90% 20%, #ccebd0, transparent 35%),
+                linear-gradient(125deg, #eff9ee, #fff);
+            padding: 95px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dff2df;
+            color: var(--dark);
+            border-radius: 30px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(39px, 5vw, 62px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 22px;
+        }
+
+        h1 span, .green { color: var(--green); }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--muted);
+            margin-bottom: 26px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-visual {
+            min-height: 390px;
+            border-radius: 28px;
+            padding: 28px;
+            background: linear-gradient(145deg, #17633c, #7cbd77);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+            color: white;
+            box-shadow: 0 22px 50px #164e3020;
+        }
+
+        .cloud-symbol {
+            font-size: 76px;
+            text-align: center;
+        }
+
+        .app-preview {
+            padding: 20px;
+            background: #ffffffed;
+            color: var(--text);
+            border-radius: 18px;
+        }
+
+        .app-preview h3 { color: var(--green); margin-bottom: 8px; }
+
+        .preview-row {
+            padding: 9px 0;
+            border-bottom: 1px solid #e7eee7;
+        }
+
+        .section-title {
+            max-width: 750px;
+            text-align: center;
+            margin: 0 auto 42px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(29px, 4vw, 40px);
+            line-height: 1.25;
+            margin-bottom: 13px;
+        }
+
+        .section-title p { color: var(--muted); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5eee5;
+            padding: 27px;
+            border-radius: 19px;
+            box-shadow: 0 8px 24px #163d1c08;
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px #163d1c13;
+        }
+
+        .icon {
+            width: 57px;
+            height: 57px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: var(--light);
+            font-size: 29px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 { margin-bottom: 10px; font-size: 20px; }
+        .card p { color: var(--muted); font-size: 15px; }
+
+        .product {
+            background: linear-gradient(140deg, #e8f7e8, #f8fcf7);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .product-visual {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 45px #17452610;
+        }
+
+        .food-icon {
+            text-align: center;
+            font-size: 100px;
+            margin: 10px;
+        }
+
+        .feature {
+            padding: 12px 0;
+            border-bottom: 1px solid #dce9db;
+        }
+
+        .feature strong { color: var(--dark); }
+
+        .demo { background: white; }
+
+        .tool {
+            background: #fff;
+            border: 1px solid #e0eae0;
+            border-radius: 19px;
+            padding: 28px;
+            margin-bottom: 22px;
+        }
+
+        .tool h3 { margin-bottom: 8px; font-size: 22px; }
+        .tool > p { color: var(--muted); margin-bottom: 17px; }
+
+        .field-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            border: 1px solid #d4e0d4;
+            border-radius: 9px;
+            padding: 13px;
+            background: white;
+            color: var(--text);
+        }
+
+        .field-row input, .field-row select { flex: 1; min-width: 190px; }
+
+        .result {
+            display: none;
+            background: #eff8ed;
+            padding: 18px;
+            margin-top: 18px;
+            border-radius: 12px;
+        }
+
+        .result.show { display: block; }
+        .result h4 { color: var(--green); margin-bottom: 8px; }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .shopping-list { list-style: none; margin-top: 18px; }
+
+        .shopping-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #e6eee5;
+            padding: 9px 0;
+        }
+
+        .shopping-list input { width: auto; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-grid h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-grid p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .value {
+            padding: 20px;
+            background: white;
+            border: 1px solid #e3ece3;
+            border-radius: 15px;
+        }
+
+        .value strong {
+            display: block;
+            color: var(--green);
+            margin-bottom: 7px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            background: white;
+            border-radius: 16px;
+            padding: 23px;
+            border: 1px solid #e4ece4;
+        }
+
+        .step-number {
+            color: var(--green);
+            font-size: 27px;
+            font-weight: 900;
+        }
+
+        .contact {
+            background: var(--dark);
+            color: white;
+        }
+
+        .contact .section-title p { color: #d4e6d7; }
+
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+            padding: 28px;
+            background: white;
+            color: var(--text);
+            border-radius: 19px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-weight: bold;
+            margin: 14px 0 6px;
+        }
+
+        textarea { min-height: 120px; resize: vertical; }
+
+        footer {
+            padding: 28px 0;
+            background: #0b281a;
+            color: #d5e5d8;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .logo { display: inline-block; margin-bottom: 10px; }
+
+        @media (max-width: 850px) {
+            .hero-grid, .product-grid, .about-grid, .split {
+                grid-template-columns: 1fr;
+            }
+
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+
+            nav {
+                padding: 16px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links { gap: 13px; }
+        }
+
+        @media (max-width: 550px) {
+            .grid, .steps, .values { grid-template-columns: 1fr; }
+            section { padding: 55px 0; }
+            .hero { padding: 60px 0; }
+            .hero-visual { min-height: 310px; padding: 18px; }
+            .card, .tool { padding: 21px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#inicio" class="logo">ECO<span>FOOD</span> ☁</a>
+
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#producto">Ecofood App</a>
+            <a href="#demo">Demostraciones</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto" class="btn btn-green">Contáctanos</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="container hero-grid">
+            <div>
+                <span class="tag">EMPRESA DE DESARROLLO DE SOFTWARE EN LA NUBE</span>
+
+                <h1>
+                    Creamos tecnología para
+                    <span>transformar tu día a día.</span>
+                </h1>
+
+                <p>
+                    Somos ECOFOOD, una empresa tecnológica dedicada al
+                    diseño y desarrollo de aplicaciones de software en la
+                    nube. Creamos soluciones digitales para diferentes
+                    servicios, necesidades y actividades, ayudando a las
+                    personas y empresas a ahorrar tiempo, organizar sus
+                    tareas y trabajar de manera más sencilla.
+                </p>
+
+                <div class="actions">
+                    <a href="#servicios" class="btn btn-green">Descubrir servicios</a>
+                    <a href="#producto" class="btn btn-white">Conocer ECOFOOD App</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="cloud-symbol">☁️</div>
+                <div class="app-preview">
+                    <h3>Bienvenido al ecosistema ECOFOOD</h3>
+                    <p>Soluciones digitales para tu vida y tu negocio.</p>
+                    <div class="preview-row">💻 Aplicaciones en la nube</div>
+                    <div class="preview-row">⚙️ Procesos más organizados</div>
+                    <div class="preview-row">🌱 Tecnología con propósito</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Soluciones tecnológicas para diferentes necesidades</h2>
+                <p>
+                    Diseñamos herramientas digitales que permiten resolver
+                    problemas cotidianos y mejorar el funcionamiento de
+                    pequeños negocios, emprendimientos y organizaciones.
+                </p>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="icon">☁️</div>
+                    <h3>Software en la nube</h3>
+                    <p>
+                        Creamos aplicaciones accesibles mediante internet
+                        para consultar información, organizar actividades
+                        y trabajar desde diferentes dispositivos.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">📱</div>
+                    <h3>Aplicaciones web</h3>
+                    <p>
+                        Desarrollamos experiencias digitales sencillas,
+                        modernas y adaptables a computadores, tabletas
+                        y celulares.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">⚙️</div>
+                    <h3>Automatización de tareas</h3>
+                    <p>
+                        Proponemos soluciones para reducir tareas repetitivas,
+                        organizar información y mejorar los procesos diarios.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🏢</div>
+                    <h3>Soluciones empresariales</h3>
+                    <p>
+                        Herramientas para gestionar inventarios, clientes,
+                        pedidos, actividades y datos importantes de un negocio.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🔐</div>
+                    <h3>Gestión de información</h3>
+                    <p>
+                        Diseñamos aplicaciones que ayudan a organizar los datos
+                        y contemplan buenas prácticas de privacidad y seguridad.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">💡</div>
+                    <h3>Soluciones a la medida</h3>
+                    <p>
+                        Convertimos ideas en propuestas digitales pensadas
+                        para necesidades específicas de personas, proyectos
+                        y empresas.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTO ESTRELLA -->
+    <section class="product" id="producto">
+        <div class="container product-grid">
+            <div class="product-visual">
+                <div class="food-icon">🥑 🥕 🍎</div>
+                <div class="app-preview">
+                    <h3>🌱 ECOFOOD App</h3>
+                    <p>Tu alimentación, organizada de manera inteligente.</p>
+                    <div class="preview-row">✓ Control de alimentos</div>
+                    <div class="preview-row">✓ Ideas de recetas</div>
+                    <div class="preview-row">✓ Planificación de compras</div>
+                    <div class="preview-row">✓ Menos desperdicio</div>
+                </div>
+            </div>
+
+            <div>
+                <span class="tag">NUESTRO PRODUCTO ESTRELLA</span>
+                <h2 style="font-size:38px;line-height:1.2;margin-bottom:18px;">
+                    ECOFOOD App: aprovecha más, desperdicia menos.
+                </h2>
+
+                <p style="color:var(--muted);margin-bottom:18px;">
+                    ECOFOOD es nuestra aplicación enfocada en la organización
+                    y el aprovechamiento de alimentos. Nace para ayudar a los
+                    hogares y pequeños negocios a saber qué tienen disponible,
+                    qué pueden preparar y cómo conservar sus productos.
+                </p>
+
+                <p style="color:var(--muted);margin-bottom:20px;">
+                    Mediante herramientas digitales, buscamos reducir las
+                    pérdidas económicas, facilitar la planificación de las
+                    comidas y promover hábitos de consumo más responsables.
+                    Nuestra meta es que la tecnología se convierta en una
+                    aliada de la alimentación y del cuidado ambiental.
+                </p>
+
+                <div class="feature">
+                    <strong>🍅 Inventario de alimentos:</strong>
+                    organiza los productos que tienes en casa.
+                </div>
+                <div class="feature">
+                    <strong>⏰ Recordatorios:</strong>
+                    registra fechas de vencimiento y revisa tus alimentos.
+                </div>
+                <div class="feature">
+                    <strong>🍲 Recetas:</strong>
+                    encuentra ideas basadas en ingredientes disponibles.
+                </div>
+                <div class="feature">
+                    <strong>🛒 Compras inteligentes:</strong>
+                    planifica lo que necesitas para evitar compras innecesarias.
+                </div>
+                <div class="feature">
+                    <strong>🌍 Sostenibilidad:</strong>
+                    aprende a aprovechar mejor los recursos y reducir residuos.
+                </div>
+
+                <a href="#demo" class="btn btn-green" style="margin-top:22px;">
+                    Explorar demostraciones
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTRAS IDEAS DE APLICACIONES -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Un ecosistema de soluciones digitales</h2>
+                <p>
+                    ECOFOOD busca crecer mediante nuevas aplicaciones que
+                    respondan a distintas necesidades de la sociedad.
+                </p>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="icon">📅</div>
+                    <h3>Organiza tu día</h3>
+                    <p>
+                        Una propuesta de aplicación para planificar horarios,
+                        crear listas de tareas y recordar actividades importantes.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">📦</div>
+                    <h3>Control de inventarios</h3>
+                    <p>
+                        Una solución para pequeños negocios que necesitan
+                        registrar productos, controlar existencias y organizar
+                        sus movimientos.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">📚</div>
+                    <h3>Apoyo al aprendizaje</h3>
+                    <p>
+                        Herramientas digitales para organizar trabajos,
+                        establecer metas académicas y administrar el tiempo
+                        de estudio.
+                    </p>
+                </article>
+            </div>
+
+            <p style="text-align:center;color:var(--muted);margin-top:25px;">
+                Estas tres soluciones son propuestas de nuestra visión
+                tecnológica y no se presentan como productos ya lanzados.
+            </p>
+        </div>
+    </section>
+
+    <!-- DEMOSTRACIONES -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conoce algunas funciones de ECOFOOD</h2>
+                <p>
+                    Prueba estas demostraciones de las herramientas que
+                    podrían formar parte de nuestra aplicación.
+                </p>
+            </div>
+
+            <div class="tool">
+                <h3>🍲 Buscador de recetas</h3>
+                <p>
+                    Escribe ingredientes separados por comas y descubre
+                    ideas de preparaciones.
+                </p>
+
+                <form id="recipeForm" class="field-row">
+                    <input id="ingredients"
+                           placeholder="Ej.: arroz, huevo, tomate"
+                           required>
+                    <button class="btn btn-green">Buscar recetas</button>
+                </form>
+
+                <div id="recipeResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <div class="tool">
+                <h3>🧊 Guía de conservación</h3>
+                <p>
+                    Consulta recomendaciones generales para almacenar
+                    correctamente diferentes alimentos.
+                </p>
+
+                <div class="field-row">
+                    <select id="food">
+                        <option value="manzana">Manzana</option>
+                        <option value="banano">Banano</option>
+                        <option value="zanahoria">Zanahoria</option>
+                        <option value="arroz">Arroz seco</option>
+                        <option value="leche">Leche</option>
+                        <option value="pollo">Pollo crudo</option>
+                    </select>
+                    <button class="btn btn-green" id="foodButton" type="button">
+                        Consultar
+                    </button>
+                </div>
+
+                <div id="foodResult" class="result" aria-live="polite"></div>
+                <p style="font-size:13px;margin-top:14px;">
+                    La conservación depende del estado del alimento, su
+                    manipulación, temperatura y empaque. Sigue siempre las
+                    instrucciones de la etiqueta.
+                </p>
+            </div>
+
+            <div class="tool">
+                <h3>🛒 Lista de compras</h3>
+                <p>
+                    Añade productos, marca los que ya compraste y organiza
+                    mejor tus necesidades.
+                </p>
+
+                <form id="shoppingForm" class="field-row">
+                    <input id="shoppingItem"
+                           placeholder="Nombre del producto"
+                           required>
+                    <button class="btn btn-green">Agregar producto</button>
+                </form>
+
+                <ul id="shoppingList" class="shopping-list"></ul>
+
+                <button id="clearList"
+                        class="btn btn-white"
+                        type="button"
+                        style="margin-top:16px;">
+                    Limpiar lista
+                </button>
+            </div>
+
+            <div class="tool">
+                <h3>🌱 Aprovechamiento de residuos</h3>
+                <p>
+                    Aprende cómo los residuos orgánicos pueden aprovecharse
+                    mediante el compostaje.
+                </p>
+
+                <div class="field-row">
+                    <select id="waste">
+                        <option value="banano">Cáscara de banano</option>
+                        <option value="manzana">Restos de manzana</option>
+                        <option value="hojas">Hojas secas</option>
+                        <option value="verduras">Restos de verduras</option>
+                    </select>
+                    <button class="btn btn-green" id="wasteButton" type="button">
+                        Ver recomendación
+                    </button>
+                </div>
+
+                <div id="wasteResult" class="result" aria-live="polite"></div>
+                <p style="font-size:13px;margin-top:14px;">
+                    El tiempo de descomposición cambia según las condiciones
+                    ambientales, por eso no existe un tiempo exacto para todos
+                    los lugares.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- METODOLOGÍA -->
+    <section style="background:#edf7ed;">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Cómo desarrollamos nuestras soluciones?</h2>
+                <p>
+                    Nuestro enfoque consiste en comprender las necesidades
+                    de las personas y convertirlas en herramientas digitales
+                    útiles y fáciles de utilizar.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Escuchamos</h3>
+                    <p>Identificamos las necesidades y dificultades de los usuarios.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Diseñamos</h3>
+                    <p>Planeamos una experiencia sencilla y una solución adecuada.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Desarrollamos</h3>
+                    <p>Construimos y probamos las funciones de la aplicación.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Mejoramos</h3>
+                    <p>Buscamos oportunidades de mejora a partir de la experiencia del usuario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+        <div class="container about-grid">
+            <div>
+                <span class="tag">SOBRE ECOFOOD</span>
+                <h2>La tecnología debe resolver problemas reales.</h2>
+
+                <p>
+                    ECOFOOD es una empresa de desarrollo de software que
+                    propone soluciones digitales basadas en tecnologías
+                    accesibles y servicios en la nube. Nuestro propósito
+                    es facilitar diferentes labores del día a día y ayudar
+                    a las personas a administrar mejor su tiempo e información.
+                </p>
+
+                <p>
+                    Creemos que una aplicación no debe ser complicada para
+                    ser útil. Por eso, buscamos crear experiencias intuitivas,
+                    prácticas y adaptadas a las necesidades de nuestros usuarios.
+                </p>
+
+                <p>
+                    Nuestro producto estrella, ECOFOOD App, representa esta
+                    idea al aplicar la tecnología a la organización de alimentos,
+                    la preparación de comidas y la reducción del desperdicio.
+                </p>
+
+                <a href="#contacto" class="btn btn-green">Hablemos de tu idea</a>
+            </div>
+
+            <div class="values">
+                <div class="value">
+                    <strong>🎯 Misión</strong>
+                    Desarrollar aplicaciones y servicios de software en la
+                    nube que faciliten las actividades diarias y respondan
+                    a las necesidades de las personas y empresas.
+                </div>
+
+                <div class="value">
+                    <strong>🔭 Visión</strong>
+                    Ser una empresa reconocida por crear soluciones
+                    tecnológicas innovadoras, accesibles y útiles para
+                    diferentes sectores.
+                </div>
+
+                <div class="value">
+                    <strong>💡 Innovación</strong>
+                    Convertir ideas y necesidades en propuestas digitales
+                    que generen valor.
+                </div>
+
+                <div class="value">
+                    <strong>🤝 Compromiso</strong>
+                    Crear tecnología con responsabilidad, pensando en la
+                    experiencia de los usuarios y el impacto de nuestras soluciones.
+                </div>
+
+                <div class="value">
+                    <strong>🔒 Responsabilidad digital</strong>
+                    Considerar la privacidad, la protección de datos y el
+                    uso responsable de la información en el diseño del software.
+                </div>
+
+                <div class="value">
+                    <strong>🌎 Sostenibilidad</strong>
+                    Promover, desde ECOFOOD App, hábitos de consumo que
+                    contribuyan a reducir el desperdicio de alimentos.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hagamos realidad nuevas ideas</h2>
+                <p>
+                    ¿Tienes una necesidad, un proyecto o una idea para una
+                    aplicación? Nos gustaría conocer tu propuesta.
+                </p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <label for="name">Nombre</label>
+                <input id="name" required placeholder="Escribe tu nombre">
+
+                <label for="email">Correo electrónico</label>
+                <input id="email" type="email" required
+                       placeholder="correo@ejemplo.com">
+
+                <label for="subject">¿Qué solución necesitas?</label>
+                <select id="subject">
+                    <option>Desarrollo de una aplicación</option>
+                    <option>Software para un negocio</option>
+                    <option>Automatización de procesos</option>
+                    <option>Información sobre ECOFOOD App</option>
+                    <option>Otra propuesta</option>
+                </select>
+
+                <label for="message">Cuéntanos tu idea</label>
+                <textarea id="message" required
+                          placeholder="Describe tu necesidad o proyecto..."></textarea>
+
+                <button class="btn btn-green"
+                        type="submit"
+                        style="margin-top:18px;">
+                    Preparar mensaje
+                </button>
+
+                <div id="contactResult" class="result" aria-live="polite"></div>
+
+                <p style="font-size:12px;color:var(--muted);margin-top:15px;">
+                    Formulario demostrativo. Para recibir mensajes reales,
+                    se debe conectar a un servicio de formularios o a un servidor.
+                </p>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <a href="#inicio" class="logo">ECO<span>FOOD</span> ☁</a>
+        <p>Software en la nube para simplificar la vida.</p>
+        <p>Innovación, soluciones digitales y tecnología con propósito.</p>
+        <p style="margin-top:12px;">
+            © <span id="year"></span> ECOFOOD. Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
+
+<script>
+    // AÑO AUTOMÁTICO
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // RECETAS DE EJEMPLO
+    const recipes = [
+        {
+            name: "Arroz salteado con huevo y verduras",
+            ingredients: ["arroz", "huevo", "tomate", "zanahoria"],
+            detail: "Puedes combinar arroz cocido que haya sido conservado "
+                + "de forma segura con huevo completamente cocinado y verduras."
+        },
+        {
+            name: "Ensalada fresca",
+            ingredients: ["tomate", "lechuga", "zanahoria", "pepino"],
+            detail: "Lava las verduras, córtalas y combínalas. Añade otros "
+                + "ingredientes según tus preferencias."
+        },
+        {
+            name: "Tortilla de verduras",
+            ingredients: ["huevo", "tomate", "cebolla", "espinaca"],
+            detail: "Mezcla huevo con verduras cortadas y cocina todo "
+                + "completamente antes de servir."
+        },
+        {
+            name: "Batido de banano y avena",
+            ingredients: ["banano", "leche", "avena"],
+            detail: "Licúa banano, leche y avena. Mantén los ingredientes "
+                + "perecederos refrigerados."
+        }
+    ];
+
+    document.getElementById("recipeForm").addEventListener("submit", event => {
+        event.preventDefault();
+
+        const available = document.getElementById("ingredients").value
+            .toLowerCase().split(",").map(x => x.trim()).filter(Boolean);
+
+        const matches = recipes.filter(recipe =>
+            recipe.ingredients.some(ingredient =>
+                available.some(item =>
+                    ingredient.includes(item) || item.includes(ingredient)
+                )
+            )
+        );
+
+        const result = document.getElementById("recipeResult");
+        result.replaceChildren();
+        result.classList.add("show");
+
+        const heading = document.createElement("h4");
+        heading.textContent = matches.length
+            ? "Ideas para preparar"
+            : "Prueba con otros ingredientes";
+        result.appendChild(heading);
+
+        if (!matches.length) {
+            result.append("Tenemos recetas de ejemplo con arroz, huevo, "
+                + "tomate, zanahoria, banano, leche y avena.");
+            return;
+        }
+
+        matches.forEach(recipe => {
+            const title = document.createElement("p");
+            const strong = document.createElement("strong");
+            strong.textContent = recipe.name;
+            title.appendChild(strong);
+
+            const detail = document.createElement("p");
+            detail.textContent = recipe.detail;
+            detail.style.marginBottom = "12px";
+
+            result.append(title, detail);
+        });
+    });
+
+    // CONSEJOS DE CONSERVACIÓN
+    const storage = {
+        manzana: "Guárdala en un lugar fresco o en el refrigerador. "
+            + "Retira las piezas dañadas y revisa su estado.",
+        banano: "Déjalo madurar a temperatura ambiente. Puedes refrigerarlo "
+            + "cuando esté maduro o congelarlo sin cáscara.",
+        zanahoria: "Guárdala en el refrigerador, preferiblemente en el cajón "
+            + "de verduras y en un recipiente adecuado.",
+        arroz: "Guarda el arroz seco en un lugar limpio, fresco y sin humedad. "
+            + "El arroz cocido debe refrigerarse pronto.",
+        leche: "Sigue las instrucciones del envase. Si requiere refrigeración, "
+            + "mantenla fría y vuelve a guardarla después de servir.",
+        pollo: "Mantén el pollo crudo a 4 °C o menos, separado de alimentos "
+            + "listos para comer. Cocina completamente y evita la contaminación cruzada."
+    };
+
+    document.getElementById("foodButton").addEventListener("click", () => {
+        const key = document.getElementById("food").value;
+        const result = document.getElementById("foodResult");
+        result.replaceChildren();
+
+        const heading = document.createElement("h4");
+        heading.textContent = "Consejo de conservación";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = storage[key];
+
+        result.append(heading, paragraph);
+        result.classList.add("show");
+    });
+
+    // COMPOSTAJE
+    const compost = {
+        banano: "La cáscara de banano puede compostarse. Cortarla en trozos "
+            + "pequeños y mezclarla con materiales secos puede facilitar el proceso.",
+        manzana: "Los restos de manzana pueden ir a una compostera. Mézclalos "
+            + "con hojas secas u otros materiales ricos en carbono.",
+        hojas: "Las hojas secas aportan carbono al compost. Tritúralas si "
+            + "quieres facilitar su descomposición.",
+        verduras: "Los restos de verduras pueden aprovecharse en compostaje. "
+            + "Equilibra los residuos húmedos con materiales secos."
+    };
+
+    document.getElementById("wasteButton").addEventListener("click", () => {
+        const key = document.getElementById("waste").value;
+        const result = document.getElementById("wasteResult");
+        result.replaceChildren();
+
+        const heading = document.createElement("h4");
+        heading.textContent = "Recomendación ECOFOOD";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = compost[key];
+
+        result.append(heading, paragraph);
+        result.classList.add("show");
+    });
+
+    // LISTA DE COMPRAS
+    const shoppingForm = document.getElementById("shoppingForm");
+    const shoppingItem = document.getElementById("shoppingItem");
+    const shoppingList = document.getElementById("shoppingList");
+
+    shoppingForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const name = shoppingItem.value.trim();
+        if (!name) return;
+
+        const item = document.createElement("li");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        const label = document.createElement("span");
+        label.textContent = name;
+
+        checkbox.addEventListener("change", () => {
+            label.style.textDecoration = checkbox.checked
+                ? "line-through" : "none";
+        });
+
+        item.append(checkbox, label);
+        shoppingList.appendChild(item);
+
+        shoppingItem.value = "";
+        shoppingItem.focus();
+    });
+
+    document.getElementById("clearList").addEventListener("click", () => {
+        shoppingList.replaceChildren();
+    });
+
+    // FORMULARIO DE CONTACTO DEMOSTRATIVO
+    document.getElementById("contactForm").addEventListener("submit", event => {
+        event.preventDefault();
+
+        const result = document.getElementById("contactResult");
+        result.replaceChildren();
+
+        const heading = document.createElement("h4");
+        heading.textContent = "¡Gracias por contactar a ECOFOOD!";
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "El formulario está funcionando como "
+            + "demostración. Para recibir tu mensaje de verdad, la página "
+            + "debe conectarse a un servicio de envío o servidor.";
+
+        result.append(heading, paragraph);
+        result.classList.add("show");
+    });
+</script>
+
+</body>
+</html>
